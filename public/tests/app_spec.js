@@ -16,7 +16,15 @@ describe('LearnJS', function() {
     describe('Problem View', function() {
         it('has a title that includes the problem number', function() {
             var view = learnjs.problemView('1');
-            expect(view.text()).toEqual('Problem #1 coming soon!');  
+            expect(view.find('.title').text()).toEqual('Problem #1');  
+        });
+        it('has a description', function() {
+            var view = learnjs.problemView('1');
+            expect(view.find('[data-name="description"]').text()).toBeTruthy();
+        });
+        it('has a code block', function() {
+            var view = learnjs.problemView('1');
+            expect(view.find('[data-name="code"]').text()).toBeTruthy();
         });
     });
 
